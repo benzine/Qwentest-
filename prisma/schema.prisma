@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id                String    @id @default(uuid())
+  email             String    @unique
+  passwordHash      String
+  role              Role      @default(ADMIN)
+  twoFactorSecret   String?   // Encrypted TOTP secret
+  twoFactorEnabled  Boolean   @default(false)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  lastLogin         DateTime?
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+// Global Site Settings (Colors, Fonts, SEO, Accessibility defaults)
+model SiteSettings {
+  id                String   @id @default("singleton")
+  siteName          String   @default("Consulting Firm")
+  primaryColor      String   @default("#0f172a")
+  accentColor       String   @default("#d4af37")
+  fontHeading       String   @default("Playfair Display")
+  fontBody          String   @default("Inter")
+  accessibilityHighContrast Boolean @default(false)
+  accessibilityReducedMotion Boolean @default(false)
+  updatedAt         DateTime @updatedAt
+}
+
+// Flexible Content Blocks for any section
+model ContentBlock {
+  id          String   @id @default(uuid())
+  key         String   @unique // e.g., "hero_title", "about_intro"
+  section     String   // e.g., "hero", "about"
+  type        String   // "text", "rich_text", "image", "video", "config"
+  data        Json     // Contains content and style overrides
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  updatedAt   DateTime @updatedAt
+}
+
+// Multi-language Dictionary
+model Translation {
+  id        String   @id @default(uuid())
+  key       String   // e.g., "nav_home", "cta_contact"
+  language  Language @default(EN)
+  value     String
+  updatedAt DateTime @updatedAt
+
+  @@unique([key, language])
+}
+
+enum Language {
+  EN
+  FR
+  ES
+}
+
+// Dynamic Form Configuration (Sequential Dropdowns)
+model FormConfig {
+  id          String   @id @default(uuid())
+  name        String   // e.g., "Contact Form", "Lead Gen"
+  isActive    Boolean  @default(true)
+  fields      Json     // Array of field definitions with logic
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Submissions from the dynamic forms
+model FormSubmission {
+  id        String   @id @default(uuid())
+  formId    String
+  formData  Json     // The actual submitted values
+  ipAddress String?
+  createdAt DateTime @default(now())
+  
+  form      FormConfig @relation(fields: [formId], references: [id])
+}
