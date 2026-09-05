@@ -1,53 +1,38 @@
 ```
+# Compiled and build artifacts
+*.css.map
+*.js.map
+*.min.css
+*.min.js
+css/dist/
+js/dist/
+build/
+
 # Dependencies
 node_modules/
+vendor/
 
-# Build outputs
-dist/
-build/
-.next/
-out/
+# WordPress specific
+wp-content/cache/
+*.log
+debug.log
 
-# Environment variables
+# Environment
 .env
 .env.local
 .env.*
 
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-.venv/
-.ENV
-.python-version
-
-# Logs
-*.log
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# IDE
+# Editors
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# Prisma
-prisma/migrations/
-prisma/schema.prisma.bak
+# OS
+.DS_Store
+Thumbs.db
 
-# Coverage
-coverage/
-.nyc_output/
+# Temp files
+*.tmp
+*.temp
 ```
