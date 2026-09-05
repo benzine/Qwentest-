@@ -30,11 +30,11 @@ get_header();
         <!-- Main Content -->
         <div class="hero-content">
             <h1 class="hero-title">
-                <?php echo esc_html(get_theme_mod('hero_title', 'APEX CONSULTING')); ?>
+                <?php echo esc_html(apex_get_studio_setting('hero_title', 'APEX CONSULTING')); ?>
             </h1>
             
             <p class="hero-tagline">
-                <?php echo esc_html(get_theme_mod('hero_tagline', 'Transforming Complexity Into Clarity')); ?>
+                <?php echo esc_html(apex_get_studio_setting('hero_subtitle', 'Transforming Complexity Into Clarity')); ?>
             </p>
             
             <button class="hero-cta" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
@@ -105,64 +105,22 @@ get_header();
         </div>
         
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            
-            <div class="services-grid">
+<div class="services-grid">
                 <?php
-                $services = array(
-                    array(
-                        'icon' => '🎯',
-                        'title' => 'Strategic Planning',
-                        'description' => 'Comprehensive roadmap development aligned with your vision and market dynamics.',
-                        'benefits' => array('Market Analysis', 'Competitive Intelligence', 'Growth Strategy'),
-                    ),
-                    array(
-                        'icon' => '💻',
-                        'title' => 'Digital Transformation',
-                        'description' => 'End-to-end digital modernization leveraging cutting-edge technologies.',
-                        'benefits' => array('Cloud Migration', 'Process Automation', 'Data Analytics'),
-                    ),
-                    array(
-                        'icon' => '⚡',
-                        'title' => 'Operational Excellence',
-                        'description' => 'Streamlining operations for maximum efficiency and scalability.',
-                        'benefits' => array('Process Optimization', 'Lean Methodologies', 'Quality Management'),
-                    ),
-                    array(
-                        'icon' => '🤝',
-                        'title' => 'Mergers & Acquisitions',
-                        'description' => 'Strategic guidance through complex M&A transactions and integrations.',
-                        'benefits' => array('Due Diligence', 'Valuation Analysis', 'Post-Merger Integration'),
-                    ),
-                    array(
-                        'icon' => '🛡️',
-                        'title' => 'Risk Management',
-                        'description' => 'Proactive identification and mitigation of business risks.',
-                        'benefits' => array('Risk Assessment', 'Compliance Frameworks', 'Crisis Management'),
-                    ),
-                    array(
-                        'icon' => '🌱',
-                        'title' => 'Sustainability',
-                        'description' => 'Building sustainable practices that drive long-term value.',
-                        'benefits' => array('ESG Strategy', 'Carbon Reduction', 'Circular Economy'),
-                    ),
-                );
-                
+                $services = apex_get_services();
+
                 foreach ($services as $service) :
+                    $icon = isset($service['icon']) ? $service['icon'] : '★';
+                    $title = isset($service['title']) ? $service['title'] : 'Service';
+                    $description = isset($service['description']) ? $service['description'] : '';
                 ?>
                 <div class="service-card">
-                    <div class="service-icon"><?php echo esc_html($service['icon']); ?></div>
-                    <h3><?php echo esc_html($service['title']); ?></h3>
-                    <p><?php echo esc_html($service['description']); ?></p>
-                    <ul class="service-benefits">
-                        <?php foreach ($service['benefits'] as $benefit) : ?>
-                        <li><?php echo esc_html($benefit); ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+                    <div class="service-icon"><?php echo esc_html($icon); ?></div>
+                    <h3><?php echo esc_html($title); ?></h3>
+                    <p><?php echo esc_html($description); ?></p>
                 </div>
                 <?php endforeach; ?>
             </div>
-        </div>
     </section>
     
     <!-- Process Section -->
@@ -604,15 +562,15 @@ get_header();
         <div class="contact-info">
             <div class="contact-info-item">
                 <div class="contact-info-icon">📧</div>
-                <p class="contact-info-text"><?php echo esc_html(get_theme_mod('contact_email', 'hello@apexconsulting.com')); ?></p>
+                <p class="contact-info-text"><?php echo esc_html(apex_get_studio_setting('contact_email', 'hello@apexconsulting.com')); ?></p>
             </div>
             <div class="contact-info-item">
                 <div class="contact-info-icon">📞</div>
-                <p class="contact-info-text"><?php echo esc_html(get_theme_mod('contact_phone', '+1 (555) 123-4567')); ?></p>
+                <p class="contact-info-text"><?php echo esc_html(apex_get_studio_setting('contact_phone', '+1 (555) 123-4567')); ?></p>
             </div>
             <div class="contact-info-item">
                 <div class="contact-info-icon">📍</div>
-                <p class="contact-info-text"><?php echo esc_html(get_theme_mod('contact_locations', 'New York • London • Singapore')); ?></p>
+                <p class="contact-info-text"><?php echo esc_html(apex_get_studio_setting('contact_address', 'New York • London • Singapore')); ?></p>
             </div>
         </div>
         
