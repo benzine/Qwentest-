@@ -74,7 +74,7 @@
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <p class="copyright">
-                        &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved.
+                        &copy; <?php echo date('Y'); ?> <?php echo esc_html(apex_get_studio_setting('copyright', get_bloginfo('name'))); ?>. All rights reserved.
                     </p>
                     
                     <div class="footer-legal">

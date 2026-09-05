@@ -1,54 +1,115 @@
 ```
-# Compiled and build artifacts
-*.pyc
-__pycache__/
+# WordPress specific ignores
+wp-content/cache/
+wp-content/uploads/
+*.log
+*.tmp
+
+# Dependencies
+node_modules/
+vendor/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+.env.*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+target/
 *.o
 *.obj
-*.class
 *.exe
 *.dll
 *.so
 *.a
 *.out
 
-# Dependencies
-node_modules/
-venv/
-.venv/
-.env
-.env.local
-.env.*
-
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-*.swo
-
-# Editors
-.vscode/
-.idea/
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Coverage
-coverage/
-htmlcov/
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
 .coverage
+htmlcov/
+.coverage.*
+.python-version
 
-# Build directories
-dist/
-build/
+# JavaScript/Node
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.hprof
+.DS_Store
+nbproject/
+nb-configuration.xml
+
+# Ruby
+*.gem
+*.rbc
+coverage/
+InstalledFiles
+pkg/
+spec/reports/
+test/tmp/
+test/version_tmp/
+tmp/
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# C/C++
+*.o
+*.a
+*.la
+*.lo
+*.so
+*.so.*
+*.dll
+*.dylib
+*.dSYM
+*.objdump
+*.bin
+*.out
+
+# Rust
+*.o
+*.out
+*.dll
+*.so
+*.dylib
+*.dSYM
 target/
-.gradle/
 
-# Python specific
-.mypy_cache/
-.pytest_cache/
+# PHP
+*.phar
+vendor/
 
-# Compressed files
+# Compression
 *.zip
 *.gz
 *.tar
@@ -71,4 +132,15 @@ target/
 *.tar.bz2
 *.tar.xz
 *.tar.zst
+
+# Testing
+coverage/
+.nyc_output/
+istanbul/
+.mocha/
+.jest/
+
+# Linting
+.eslintcache
+.stylelintcache
 ```

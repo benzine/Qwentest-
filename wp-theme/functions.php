@@ -319,3 +319,10 @@ require get_template_directory() . '/inc/class-walker-nav-menu.php';
  * Include AJAX handlers for contact form
  */
 require get_template_directory() . '/inc/ajax-handlers.php';
+
+/**
+ * Include Studio Backoffice (admin-only content management)
+ */
+if (is_admin() || current_user_can('manage_options')) {
+    require get_template_directory() . '/inc/class-studio-backoffice.php';
+}

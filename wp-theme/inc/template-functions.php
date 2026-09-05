@@ -19,6 +19,59 @@ if (!function_exists('apex_asset_url')) {
 }
 
 /**
+ * Get Studio setting (from backoffice)
+ */
+if (!function_exists('apex_get_studio_setting')) {
+    function apex_get_studio_setting($key, $default = '') {
+        $settings = get_option('theme_studio_settings', array());
+        
+        if (isset($settings[$key]) && !empty($settings[$key])) {
+            return $settings[$key];
+        }
+        
+        // Fallback to theme_mod for backwards compatibility
+        return get_theme_mod($key, $default);
+    }
+}
+
+/**
+ * Get services from Studio settings
+ */
+if (!function_exists('apex_get_services')) {
+    function apex_get_services() {
+        $settings = get_option('theme_studio_settings', array());
+        
+        if (!empty($settings['services']) && is_array($settings['services'])) {
+            return $settings['services'];
+        }
+        
+        // Default services
+        return array(
+            array('title' => 'Strategy', 'description' => 'Data-driven insights and roadmaps.', 'icon' => 'dashicons-lightbulb'),
+            array('title' => 'Design', 'description' => 'Pixel-perfect UI/UX experiences.', 'icon' => 'dashicons-art'),
+            array('title' => 'Development', 'description' => 'Robust, scalable solutions.', 'icon' => 'dashicons-code-standards'),
+            array('title' => 'Analytics', 'description' => 'Performance optimization.', 'icon' => 'dashicons-chart-line'),
+        );
+    }
+}
+
+/**
+ * Get team members from Studio settings
+ */
+if (!function_exists('apex_get_studio_team')) {
+    function apex_get_studio_team() {
+        $settings = get_option('theme_studio_settings', array());
+        
+        if (!empty($settings['team']) && is_array($settings['team'])) {
+            return $settings['team'];
+        }
+        
+        // Return default team structure
+        return array();
+    }
+}
+
+/**
  * Get section navigation items
  */
 if (!function_exists('apex_get_section_nav')) {
