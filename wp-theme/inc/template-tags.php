@@ -1,4 +1,5 @@
-/*
+<?php
+/**
  * Custom Template Tags for Apex Consulting Theme
  *
  * @package Apex_Consulting
