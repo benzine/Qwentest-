@@ -1,0 +1,176 @@
+/* Studio Backoffice Admin Styles */
+
+.studio-wrap {
+    background: #f0f0f1;
+    padding: 20px;
+}
+
+.studio-container {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: 600px;
+}
+
+.studio-nav {
+    background: #f6f7f7;
+    border-right: 1px solid #c3c4c7;
+    padding: 20px 0;
+}
+
+.studio-nav .nav-tab {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    border-left: 4px solid transparent;
+    cursor: pointer;
+    font-size: 14px;
+    color: #3c434a;
+    transition: all 0.2s ease;
+}
+
+.studio-nav .nav-tab:hover {
+    background: #fff;
+    color: #2271b1;
+}
+
+.studio-nav .nav-tab.active {
+    background: #fff;
+    border-left-color: #2271b1;
+    color: #2271b1;
+    font-weight: 600;
+}
+
+.studio-tab-content {
+    display: none;
+    padding: 30px;
+}
+
+.studio-tab-content.active {
+    display: block;
+}
+
+.studio-field {
+    margin-bottom: 25px;
+}
+
+.studio-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #3c434a;
+}
+
+.studio-field input[type="text"],
+.studio-field input[type="email"],
+.studio-field textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 8px 12px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.studio-field input[type="color"] {
+    width: 60px;
+    height: 40px;
+    padding: 2px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.studio-field textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Repeater Fields */
+#services-repeater,
+#team-repeater {
+    margin-bottom: 20px;
+}
+
+.repeater-item {
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.repeater-item .remove-item {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #d63638;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    padding: 5px;
+}
+
+.repeater-item .remove-item:hover {
+    color: #b32d2e;
+}
+
+.repeater-item input[type="text"],
+.repeater-item textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+}
+
+.repeater-item textarea {
+    min-height: 60px;
+}
+
+.add-service,
+.add-team {
+    background: #f0f0f1;
+    border: 1px dashed #8c8f94;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-service:hover,
+.add-team:hover {
+    background: #fff;
+    border-color: #2271b1;
+    color: #2271b1;
+}
+
+.studio-actions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #dcdcde;
+}
+
+.save-status {
+    margin-left: 15px;
+    font-style: italic;
+    color: #00a32a;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.save-status.visible {
+    opacity: 1;
+}
+
+h2 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dcdcde;
+}
